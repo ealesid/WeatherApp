@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */; };
-		DBBBB2E221F3307200F3C43F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2E121F3307200F3C43F /* ViewController.swift */; };
 		DBBBB2E521F3307200F3C43F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E321F3307200F3C43F /* Main.storyboard */; };
 		DBBBB2E721F3307600F3C43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E621F3307600F3C43F /* Assets.xcassets */; };
 		DBBBB2EA21F3307600F3C43F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */; };
+		DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DBBBB2DC21F3307200F3C43F /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBBBB2E121F3307200F3C43F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBBBB2E421F3307200F3C43F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBBBB2E621F3307600F3C43F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBBBB2E921F3307600F3C43F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBBBB2EB21F3307600F3C43F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		DBBBB2F421F3353200F3C43F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +56,11 @@
 			isa = PBXGroup;
 			children = (
 				DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */,
-				DBBBB2E121F3307200F3C43F /* ViewController.swift */,
 				DBBBB2E321F3307200F3C43F /* Main.storyboard */,
 				DBBBB2E621F3307600F3C43F /* Assets.xcassets */,
 				DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */,
 				DBBBB2EB21F3307600F3C43F /* Info.plist */,
+				DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -135,8 +136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBBBB2E221F3307200F3C43F /* ViewController.swift in Sources */,
 				DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */,
+				DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +148,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DBBBB2E421F3307200F3C43F /* Base */,
+				DBBBB2F421F3353200F3C43F /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -213,7 +215,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -268,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
