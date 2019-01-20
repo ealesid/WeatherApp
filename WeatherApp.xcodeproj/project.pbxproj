@@ -12,6 +12,7 @@
 		DBBBB2E721F3307600F3C43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E621F3307600F3C43F /* Assets.xcassets */; };
 		DBBBB2EA21F3307600F3C43F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */; };
 		DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */; };
+		DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAAD9221F4E12C00353476 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		DBBBB2EB21F3307600F3C43F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		DBBBB2F421F3353200F3C43F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		DBEAAD9221F4E12C00353476 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +57,31 @@
 		DBBBB2DE21F3307200F3C43F /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				DBEAAD9121F4E10400353476 /* Controllers */,
+				DBEAAD9021F4E0F600353476 /* Helpers */,
 				DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */,
 				DBBBB2E321F3307200F3C43F /* Main.storyboard */,
 				DBBBB2E621F3307600F3C43F /* Assets.xcassets */,
 				DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */,
 				DBBBB2EB21F3307600F3C43F /* Info.plist */,
-				DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		DBEAAD9021F4E0F600353476 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DBEAAD9221F4E12C00353476 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DBEAAD9121F4E10400353476 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */,
+				DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */,
 				DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
