@@ -71,6 +71,8 @@ class LoginFormController: UIViewController {
         self.scrollView?.scrollIndicatorInsets = contentInsets
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -99,6 +101,11 @@ class LoginFormController: UIViewController {
         } else {
             print("Wrong username or password")
         }
+    }
+    
+    @IBAction func closeKeyboardAction() {
+        print("closeKeybordAction")
+        self.view.endEditing(true)
     }
     
 }
