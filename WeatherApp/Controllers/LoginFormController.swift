@@ -75,11 +75,11 @@ class LoginFormController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.labelAppTitle.text = "AppName"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.labelAppTitle.text = "AppName"
         self.loginInput.underlined()
         self.passwordInput.underlined()
     }
