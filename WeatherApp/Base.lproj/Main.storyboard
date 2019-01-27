@@ -126,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="2785" y="86"/>
         </scene>
-        <!--Title-->
+        <!--Item-->
         <scene sceneID="ER1-aZ-fws">
             <objects>
                 <tableViewController id="djf-fv-jzQ" sceneMemberID="viewController">
@@ -150,13 +150,6 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="Uik-wC-gi0"/>
-                    <navigationItem key="navigationItem" title="Title" leftItemsSupplementBackButton="YES" id="6Lb-Hf-Pob">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="EZw-ZW-b0V" userLabel="Next">
-                            <connections>
-                                <segue destination="tLA-dg-jgD" kind="show" identifier="toNextTableView" id="L47-90-1Rz"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSd-UH-veC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,7 +158,7 @@
         <!--Table View Controller-->
         <scene sceneID="hAr-lk-B7G">
             <objects>
-                <tableViewController id="tLA-dg-jgD" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="nextTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tLA-dg-jgD" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UgR-nT-iny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="5850" y="460"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Item-->
         <scene sceneID="0eK-oB-7kP">
             <objects>
                 <tableViewController id="iAG-vc-6rt" sceneMemberID="viewController">
@@ -206,9 +199,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="aIb-xw-Zze" kind="show" id="JR2-Wk-bCm"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -217,9 +207,6 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="9fB-Ng-0XE"/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="WW9-oS-FUK">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="GR0-gB-4tI" userLabel="Next"/>
-                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSG-Da-y7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,8 +215,7 @@
         <!--Collection View Controller-->
         <scene sceneID="eQi-oa-n73">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FQH-Oa-5IW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <collectionViewController id="aIb-xw-Zze" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="nextCollectionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aIb-xw-Zze" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QFN-2U-1q2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,6 +242,7 @@
                         </connections>
                     </collectionView>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQH-Oa-5IW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5849" y="-194"/>
         </scene>
@@ -278,17 +265,26 @@
         <!--Tab Bar Controller-->
         <scene sceneID="zdo-lw-S8I">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lN1-5J-equ" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lN1-5J-equ" customClass="TabBarController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="DK7-j3-eAQ"/>
+                    <navigationItem key="navigationItem" id="DK7-j3-eAQ">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="VCh-GF-xyw" userLabel="Next">
+                            <connections>
+                                <action selector="btnNextViewPressed:" destination="lN1-5J-equ" id="Wx9-3q-4mK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LAK-mC-HxP">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="btnNextView" destination="VCh-GF-xyw" id="HH2-rm-pRg"/>
                         <segue destination="iAG-vc-6rt" kind="relationship" relationship="viewControllers" id="TaF-sN-Bn9"/>
                         <segue destination="djf-fv-jzQ" kind="relationship" relationship="viewControllers" id="xDC-5i-i8R"/>
+                        <segue destination="aIb-xw-Zze" kind="show" identifier="nextViewIsCollection" id="QF7-G7-VD2"/>
+                        <segue destination="tLA-dg-jgD" kind="show" identifier="nextViewIsTable" id="Ul5-Sg-7Lc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWa-Uh-L9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
