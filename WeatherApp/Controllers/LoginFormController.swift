@@ -8,8 +8,8 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-    private let demoUser = "user"
-    private let demoPassword = "passwd"
+    private let demoUser = "123"
+    private let demoPassword = "456"
     
     // MARK: - Init
     
@@ -79,7 +79,7 @@ class LoginFormController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         self.loginInput.underlined()
         self.passwordInput.underlined()
     }
@@ -98,6 +98,7 @@ class LoginFormController: UIViewController {
         
         if user == self.demoUser && password == self.demoPassword {
             print("Login successful")
+            self.startApp()
         } else {
             print("Wrong username or password")
         }
@@ -106,6 +107,12 @@ class LoginFormController: UIViewController {
     @IBAction func closeKeyboardAction() {
         print("closeKeybordAction")
         self.view.endEditing(true)
+    }
+    
+    func startApp() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar")
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

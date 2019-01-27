@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB2B935421FE042D005D4BEB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B935321FE042D005D4BEB /* TabBarController.swift */; };
 		DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */; };
 		DBBBB2E521F3307200F3C43F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E321F3307200F3C43F /* Main.storyboard */; };
 		DBBBB2E721F3307600F3C43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E621F3307600F3C43F /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB2B935321FE042D005D4BEB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DBBBB2DC21F3307200F3C43F /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBBB2E421F3307200F3C43F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,8 +63,8 @@
 				DBEAAD9021F4E0F600353476 /* Helpers */,
 				DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */,
 				DBBBB2E321F3307200F3C43F /* Main.storyboard */,
-				DBBBB2E621F3307600F3C43F /* Assets.xcassets */,
 				DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */,
+				DBBBB2E621F3307600F3C43F /* Assets.xcassets */,
 				DBBBB2EB21F3307600F3C43F /* Info.plist */,
 			);
 			path = WeatherApp;
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */,
+				DB2B935321FE042D005D4BEB /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */,
+				DB2B935421FE042D005D4BEB /* TabBarController.swift in Sources */,
 				DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */,
 				DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */,
 			);
