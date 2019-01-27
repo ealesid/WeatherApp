@@ -98,7 +98,7 @@ class LoginFormController: UIViewController {
         
         if user == self.demoUser && password == self.demoPassword {
             print("Login successful")
-            self.startApp()
+            self.performSegue(withIdentifier: "appStart", sender: nil)
         } else {
             print("Wrong username or password")
         }
@@ -107,12 +107,6 @@ class LoginFormController: UIViewController {
     @IBAction func closeKeyboardAction() {
         print("closeKeybordAction")
         self.view.endEditing(true)
-    }
-    
-    func startApp() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "appStoryboard")
-        self.present(vc, animated: true, completion: nil)
     }
     
 }

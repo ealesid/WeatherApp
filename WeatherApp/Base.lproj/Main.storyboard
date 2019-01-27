@@ -114,6 +114,7 @@
                         <outlet property="loginInput" destination="vsu-JR-IOd" id="grJ-D6-Ntx"/>
                         <outlet property="passwordInput" destination="e6H-aG-dc3" id="Yo3-tb-cQM"/>
                         <outlet property="scrollView" destination="fF5-eg-jpX" id="3H2-Zj-MLW"/>
+                        <segue destination="Hrl-if-Hcw" kind="show" identifier="appStart" id="0sA-4w-M4j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,7 +124,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2895" y="86"/>
+            <point key="canvasLocation" x="2785" y="86"/>
         </scene>
         <!--Title-->
         <scene sceneID="ER1-aZ-fws">
@@ -205,6 +206,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="aIb-xw-Zze" kind="show" id="JR2-Wk-bCm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -214,11 +218,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="9fB-Ng-0XE"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="WW9-oS-FUK">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="GR0-gB-4tI" userLabel="Next">
-                            <connections>
-                                <segue destination="aIb-xw-Zze" kind="show" identifier="toCollectionView" id="8QW-uC-9Ol"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="GR0-gB-4tI" userLabel="Next"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSG-Da-y7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,6 +228,7 @@
         <!--Collection View Controller-->
         <scene sceneID="eQi-oa-n73">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQH-Oa-5IW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="aIb-xw-Zze" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QFN-2U-1q2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -255,7 +256,6 @@
                         </connections>
                     </collectionView>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FQH-Oa-5IW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5849" y="-194"/>
         </scene>
@@ -282,6 +282,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="DK7-j3-eAQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LAK-mC-HxP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
