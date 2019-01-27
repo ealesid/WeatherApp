@@ -111,7 +111,7 @@ class LoginFormController: UIViewController {
     
     func startApp() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar")
+        let vc = storyboard.instantiateViewController(withIdentifier: "appStoryboard")
         self.present(vc, animated: true, completion: nil)
     }
     
