@@ -126,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="2785" y="86"/>
         </scene>
-        <!--Item-->
+        <!--ToTableView-->
         <scene sceneID="ER1-aZ-fws">
             <objects>
                 <tableViewController id="djf-fv-jzQ" sceneMemberID="viewController">
@@ -149,7 +149,7 @@
                             <outlet property="delegate" destination="djf-fv-jzQ" id="alm-hC-oed"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Uik-wC-gi0"/>
+                    <tabBarItem key="tabBarItem" title="ToTableView" id="Uik-wC-gi0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tSd-UH-veC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="5850" y="460"/>
         </scene>
-        <!--Item-->
+        <!--ToCollectionView-->
         <scene sceneID="0eK-oB-7kP">
             <objects>
                 <tableViewController id="iAG-vc-6rt" sceneMemberID="viewController">
@@ -206,7 +206,7 @@
                             <outlet property="delegate" destination="iAG-vc-6rt" id="Aeh-9N-FSu"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="9fB-Ng-0XE"/>
+                    <tabBarItem key="tabBarItem" title="ToCollectionView" id="9fB-Ng-0XE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSG-Da-y7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
