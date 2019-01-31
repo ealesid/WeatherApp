@@ -76,10 +76,16 @@ class LoginFormController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.labelAppTitle.text = "AppName"
+        
+        self.loginInput?.text = self.demoUser
+        self.passwordInput?.text = self.demoPassword
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         self.loginInput.underlined()
         self.passwordInput.underlined()
     }
@@ -109,4 +115,7 @@ class LoginFormController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBAction func logoutAction(segue: UIStoryboardSegue) {
+        
+    }
 }
