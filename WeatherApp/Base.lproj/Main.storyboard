@@ -128,22 +128,50 @@
             </objects>
             <point key="canvasLocation" x="6206" y="-30"/>
         </scene>
-        <!--Groups-->
+        <!--Yours groups-->
         <scene sceneID="5Qz-NX-0ya">
             <objects>
-                <tableViewController id="3lF-9u-0Ly" customClass="GroupsTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Yours groups" id="3lF-9u-0Ly" customClass="GroupsTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GYw-am-MKK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1Ih-3l-6Km">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupTableViewCell" id="1Ih-3l-6Km" customClass="GroupTableViewCell" customModule="WeatherApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ih-3l-6Km" id="FET-9J-lfg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ygl-4b-Wyr">
+                                            <rect key="frame" x="8" y="4" width="35.666666666666664" height="35.666666666666664"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ygl-4b-Wyr" secondAttribute="height" multiplier="40:40" id="xsL-VA-NeB"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-uP-V5m">
+                                            <rect key="frame" x="51.666666666666657" y="11.333333333333336" width="315.33333333333337" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ygl-4b-Wyr" secondAttribute="bottom" constant="4" id="Cwi-25-ReB"/>
+                                        <constraint firstItem="ygl-4b-Wyr" firstAttribute="top" secondItem="FET-9J-lfg" secondAttribute="top" constant="4" id="M96-IS-CDe"/>
+                                        <constraint firstItem="qsF-uP-V5m" firstAttribute="centerY" secondItem="FET-9J-lfg" secondAttribute="centerY" id="O6Q-Wg-pD5"/>
+                                        <constraint firstAttribute="trailing" secondItem="qsF-uP-V5m" secondAttribute="trailing" constant="8" id="Pw2-JK-gPW"/>
+                                        <constraint firstAttribute="trailing" secondItem="qsF-uP-V5m" secondAttribute="trailing" constant="8" id="XPc-WR-rqc"/>
+                                        <constraint firstItem="ygl-4b-Wyr" firstAttribute="leading" secondItem="FET-9J-lfg" secondAttribute="leading" constant="8" id="ZCg-oQ-uOW"/>
+                                        <constraint firstItem="qsF-uP-V5m" firstAttribute="leading" secondItem="ygl-4b-Wyr" secondAttribute="trailing" constant="8" id="d0j-Mb-IqT"/>
+                                        <constraint firstItem="qsF-uP-V5m" firstAttribute="centerY" secondItem="FET-9J-lfg" secondAttribute="centerY" id="ewQ-4D-hul"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupImageView" destination="ygl-4b-Wyr" id="SBN-k7-gvP"/>
+                                    <outlet property="groupNameLabel" destination="qsF-uP-V5m" id="tXN-I9-ndd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -151,7 +179,7 @@
                             <outlet property="delegate" destination="3lF-9u-0Ly" id="e1u-uF-AT2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Groups" id="58h-75-w7r">
+                    <navigationItem key="navigationItem" title="Yours groups" id="58h-75-w7r">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="aso-TO-6Os">
                             <connections>
                                 <segue destination="UgL-12-ZZv" kind="unwind" unwindAction="logoutActionWithSegue:" id="Hyh-ce-1ik"/>
@@ -166,24 +194,50 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwH-dP-HnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8718" y="324"/>
+            <point key="canvasLocation" x="8717.6000000000004" y="322.90640394088672"/>
         </scene>
-        <!--Table View Controller-->
+        <!--New groups-->
         <scene sceneID="xsu-a2-pZ3">
             <objects>
-                <tableViewController id="dxE-Wz-Jil" sceneMemberID="viewController">
+                <tableViewController id="dxE-Wz-Jil" customClass="AddGroupTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aTW-Py-oZ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Sx-fH-DhY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewGroupTableViewCell" id="5Sx-fH-DhY" customClass="NewGroupTableViewCell" customModule="WeatherApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Sx-fH-DhY" id="cEr-OV-dLe">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gHh-OP-CaQ">
+                                            <rect key="frame" x="8" y="4" width="35.666666666666664" height="35.666666666666664"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="gHh-OP-CaQ" secondAttribute="height" multiplier="40:40" id="DkM-3P-rxv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNo-qT-OD2">
+                                            <rect key="frame" x="51.666666666666657" y="11.333333333333336" width="315.33333333333337" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wNo-qT-OD2" firstAttribute="leading" secondItem="gHh-OP-CaQ" secondAttribute="trailing" constant="8" id="7my-2D-i0i"/>
+                                        <constraint firstItem="gHh-OP-CaQ" firstAttribute="top" secondItem="cEr-OV-dLe" secondAttribute="top" constant="4" id="GcZ-Jz-Hw4"/>
+                                        <constraint firstItem="wNo-qT-OD2" firstAttribute="centerY" secondItem="cEr-OV-dLe" secondAttribute="centerY" id="bg2-qq-oBu"/>
+                                        <constraint firstAttribute="trailing" secondItem="wNo-qT-OD2" secondAttribute="trailing" constant="8" id="gcb-Sv-jwD"/>
+                                        <constraint firstAttribute="bottom" secondItem="gHh-OP-CaQ" secondAttribute="bottom" constant="4" id="jyr-Fc-3ah"/>
+                                        <constraint firstItem="gHh-OP-CaQ" firstAttribute="leading" secondItem="cEr-OV-dLe" secondAttribute="leading" constant="8" id="nfQ-xc-jM0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupImageView" destination="gHh-OP-CaQ" id="tXe-1Z-PEy"/>
+                                    <outlet property="groupNameLabel" destination="wNo-qT-OD2" id="XX8-1s-Z1y"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -191,10 +245,11 @@
                             <outlet property="delegate" destination="dxE-Wz-Jil" id="vqS-ku-U6W"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="New groups" id="My8-gr-RsL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Di-IT-pr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9502" y="324"/>
+            <point key="canvasLocation" x="9501.6000000000004" y="323.64532019704433"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qU5-Mp-5WX">
@@ -255,7 +310,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="friendNameLabel" destination="5Nm-tW-gQG" id="1u1-OM-qi8"/>
-                                    <outlet property="friendPhotoImage" destination="YXa-Wz-Tel" id="VGg-G2-nmM"/>
+                                    <outlet property="friendPhotoView" destination="YXa-Wz-Tel" id="VGg-G2-nmM"/>
                                     <segue destination="q9c-gO-FHh" kind="show" identifier="showFriendInfo" id="nc8-V3-Zs1"/>
                                 </connections>
                             </tableViewCell>
@@ -322,7 +377,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="friendNameLabel" destination="t68-lp-hfz" id="Yx5-OT-3JQ"/>
-                                    <outlet property="friendPhotoImage" destination="hci-Yh-c74" id="AUM-39-XD3"/>
+                                    <outlet property="friendPhotoView" destination="hci-Yh-c74" id="AUM-39-XD3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
