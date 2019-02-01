@@ -131,7 +131,7 @@
         <!--Groups-->
         <scene sceneID="5Qz-NX-0ya">
             <objects>
-                <tableViewController id="3lF-9u-0Ly" sceneMemberID="viewController">
+                <tableViewController id="3lF-9u-0Ly" customClass="GroupsTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GYw-am-MKK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,21 +217,46 @@
         <!--Friends-->
         <scene sceneID="bsu-pm-nGB">
             <objects>
-                <tableViewController id="cXx-6k-dTw" sceneMemberID="viewController">
+                <tableViewController id="cXx-6k-dTw" customClass="FriendsTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vz9-6o-7Zd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eJH-C0-Zea">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsTableViewCell" id="eJH-C0-Zea" customClass="FriendsTableViewCell" customModule="WeatherApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eJH-C0-Zea" id="Odv-Mm-Lys">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YXa-Wz-Tel">
+                                            <rect key="frame" x="8" y="4" width="35.666666666666664" height="35.666666666666664"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="YXa-Wz-Tel" secondAttribute="height" multiplier="36:36" id="Gp3-QG-zFQ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friendName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nm-tW-gQG">
+                                            <rect key="frame" x="51.666666666666657" y="4" width="331.33333333333337" height="35.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5Nm-tW-gQG" firstAttribute="leading" secondItem="YXa-Wz-Tel" secondAttribute="trailing" constant="8" id="4Xp-D9-fua"/>
+                                        <constraint firstItem="5Nm-tW-gQG" firstAttribute="top" secondItem="Odv-Mm-Lys" secondAttribute="top" constant="4" id="6lu-Rc-olt"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Nm-tW-gQG" secondAttribute="bottom" constant="4" id="ARH-YK-20W"/>
+                                        <constraint firstAttribute="bottom" secondItem="YXa-Wz-Tel" secondAttribute="bottom" constant="4" id="Ane-L4-gU8"/>
+                                        <constraint firstItem="5Nm-tW-gQG" firstAttribute="trailing" secondItem="Odv-Mm-Lys" secondAttribute="trailing" constant="8" id="IOO-ht-Psz"/>
+                                        <constraint firstItem="YXa-Wz-Tel" firstAttribute="top" secondItem="Odv-Mm-Lys" secondAttribute="top" constant="4" id="YCq-TG-SoZ"/>
+                                        <constraint firstItem="YXa-Wz-Tel" firstAttribute="leading" secondItem="Odv-Mm-Lys" secondAttribute="leading" constant="8" id="twU-Xt-GPo"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="q9c-gO-FHh" kind="show" id="ImX-Y9-ReB"/>
+                                    <outlet property="friendNameLabel" destination="5Nm-tW-gQG" id="1u1-OM-qi8"/>
+                                    <outlet property="friendPhotoImage" destination="YXa-Wz-Tel" id="VGg-G2-nmM"/>
+                                    <segue destination="q9c-gO-FHh" kind="show" id="nc8-V3-Zs1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -250,7 +275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cj4-ly-GfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8718" y="-328"/>
+            <point key="canvasLocation" x="8717.6000000000004" y="-328.07881773399015"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="qUg-lY-9SW">
