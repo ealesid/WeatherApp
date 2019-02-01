@@ -5,6 +5,9 @@ class FriendsTableViewController: UITableViewController {
     
     var friends: [Friend] = []
     
+    private var selectedFriend: Friend?
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,12 +39,11 @@ class FriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsTableViewCell", for: indexPath) as! FriendsTableViewCell
 
-        let friend = self.friends[indexPath.row]
-        cell.setFriend(friend)
+        cell.setFriend(self.friends[indexPath.row])
         
         return cell
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -77,14 +79,21 @@ class FriendsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("prepeare \(String(describing: segue.identifier))")
+
+        if let identifier = segue.identifier, identifier == "showFriendInfo" {
+            if let destinationVC = segue.destination  as? FriendCollectionViewController {
+                destinationVC.friend = self.friends[self.tableView.indexPathForSelectedRow!.row]
+            }
+        }
+
+
     }
-    */
 
 }

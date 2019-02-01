@@ -256,7 +256,7 @@
                                 <connections>
                                     <outlet property="friendNameLabel" destination="5Nm-tW-gQG" id="1u1-OM-qi8"/>
                                     <outlet property="friendPhotoImage" destination="YXa-Wz-Tel" id="VGg-G2-nmM"/>
-                                    <segue destination="q9c-gO-FHh" kind="show" id="nc8-V3-Zs1"/>
+                                    <segue destination="q9c-gO-FHh" kind="show" identifier="showFriendInfo" id="nc8-V3-Zs1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -277,28 +277,53 @@
             </objects>
             <point key="canvasLocation" x="8717.6000000000004" y="-328.07881773399015"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Friend Collection View Controller-->
         <scene sceneID="qUg-lY-9SW">
             <objects>
-                <collectionViewController id="q9c-gO-FHh" sceneMemberID="viewController">
+                <collectionViewController id="q9c-gO-FHh" customClass="FriendCollectionViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="yio-ej-yZC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y8P-Da-Ayl">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="375" height="318"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WGl-6x-Syc">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendInfo" id="WGl-6x-Syc" customClass="FriendCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t68-lp-hfz">
+                                            <rect key="frame" x="138.66666666666666" y="8" width="98" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hci-Yh-c74">
+                                            <rect key="frame" x="59" y="45" width="257" height="257"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="hci-Yh-c74" secondAttribute="height" multiplier="15:15" id="tp5-39-9Ut"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="t68-lp-hfz" firstAttribute="top" secondItem="WGl-6x-Syc" secondAttribute="top" constant="8" id="7R2-Zb-mev"/>
+                                    <constraint firstItem="hci-Yh-c74" firstAttribute="top" secondItem="t68-lp-hfz" secondAttribute="bottom" constant="16" id="AYD-NT-d04"/>
+                                    <constraint firstItem="hci-Yh-c74" firstAttribute="centerX" secondItem="WGl-6x-Syc" secondAttribute="centerX" id="JaP-eT-awF"/>
+                                    <constraint firstItem="t68-lp-hfz" firstAttribute="centerX" secondItem="WGl-6x-Syc" secondAttribute="centerX" id="Say-a6-evk"/>
+                                    <constraint firstItem="hci-Yh-c74" firstAttribute="leading" secondItem="WGl-6x-Syc" secondAttribute="leadingMargin" constant="51" id="qv3-Ej-8Zu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="friendNameLabel" destination="t68-lp-hfz" id="Yx5-OT-3JQ"/>
+                                    <outlet property="friendPhotoImage" destination="hci-Yh-c74" id="AUM-39-XD3"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -309,7 +334,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxi-7E-z6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9502" y="-328"/>
+            <point key="canvasLocation" x="9501.6000000000004" y="-328.07881773399015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v8D-S9-EGo">
