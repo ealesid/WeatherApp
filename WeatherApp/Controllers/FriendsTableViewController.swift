@@ -3,7 +3,11 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
-    var friends: [Friend] = []
+    var friends: [Friend] = [
+        Friend(name: "1st Friend", image: UIImage(named: "firstFriend")!),
+        Friend(name: "2nd Friend", image: UIImage(named: "secondFriend")!),
+        Friend(name: "3rd Friend"),
+    ]
     
     private var selectedFriend: Friend?
     
@@ -11,14 +15,6 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstFriend = Friend(name: "1st Friend", image: UIImage(named: "firstFriend")!)
-        let secondFriend = Friend(name: "2nd Friend", image: UIImage(named: "secondFriend")!)
-        let thirdFriend = Friend(name: "3rd Friend")
-        
-        self.friends.append(firstFriend)
-        self.friends.append(secondFriend)
-        self.friends.append(thirdFriend)
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,14 +41,6 @@ class FriendsTableViewController: UITableViewController {
     }
     
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -61,21 +49,6 @@ class FriendsTableViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
     }
     */
 
