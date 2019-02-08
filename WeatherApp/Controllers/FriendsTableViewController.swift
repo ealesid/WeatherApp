@@ -58,7 +58,7 @@ class FriendsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        print("prepeare \(String(describing: segue.identifier))")
+//        print("prepeare \(String(describing: segue.identifier))")
 
         if let identifier = segue.identifier, identifier == "showFriendInfo" {
             if let destinationVC = segue.destination  as? FriendCollectionViewController {

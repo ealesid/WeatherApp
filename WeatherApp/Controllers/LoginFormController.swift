@@ -103,7 +103,7 @@ class LoginFormController: UIViewController {
         }
         
         if user == self.demoUser && password == self.demoPassword {
-            print("Login successful")
+//            print("Login successful")
             self.performSegue(withIdentifier: "appStart", sender: nil)
         } else {
             print("Wrong username or password")

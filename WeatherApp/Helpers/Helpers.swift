@@ -12,10 +12,20 @@ extension UITextField {
     }
 }
 
-extension UIImageView {
+extension UIView {
     func setRounded() {
         self.layer.cornerRadius = self.frame.width / 2
         self.layer.masksToBounds = true
 //        self.clipsToBounds = true
+    }
+    
+    func setShadow() {
+        self.layer.cornerRadius = self.frame.width / 2
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: self.layer.cornerRadius).cgPath
+        self.clipsToBounds = true
     }
 }
