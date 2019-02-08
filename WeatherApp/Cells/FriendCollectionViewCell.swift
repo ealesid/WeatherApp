@@ -4,10 +4,11 @@ class FriendCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendPhotoView: UIView!
-
+    @IBOutlet weak var imageView: UIImageView!
+    
     func setFriend(_ friend: Friend) {
         
-        let imageView = UIImageView(frame: self.friendPhotoView.bounds)
+//        let imageView = UIImageView(frame: self.friendPhotoView.bounds)
         imageView.image = friend.image
         imageView.setRounded()
 
