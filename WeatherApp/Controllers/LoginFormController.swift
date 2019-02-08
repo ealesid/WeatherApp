@@ -111,7 +111,7 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func closeKeyboardAction() {
-        print("closeKeybordAction")
+//        print("closeKeybordAction")
         self.view.endEditing(true)
     }
     

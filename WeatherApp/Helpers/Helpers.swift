@@ -20,12 +20,12 @@ extension UIView {
     }
     
     func setShadow() {
-        self.layer.cornerRadius = self.frame.width / 2
-        self.layer.masksToBounds = false
+        self.backgroundColor = nil
+        self.clipsToBounds = false
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: self.layer.cornerRadius).cgPath
-        self.clipsToBounds = true
+        self.layer.shadowRadius = 10
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: self.frame.width / 2).cgPath
     }
 }

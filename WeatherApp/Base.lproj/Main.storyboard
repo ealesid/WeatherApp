@@ -319,7 +319,7 @@
                                 <connections>
                                     <outlet property="friendNameLabel" destination="5Nm-tW-gQG" id="1u1-OM-qi8"/>
                                     <outlet property="friendPhotoView" destination="YXa-Wz-Tel" id="VGg-G2-nmM"/>
-                                    <segue destination="q9c-gO-FHh" kind="show" identifier="showFriendInfo" id="nc8-V3-Zs1"/>
+                                    <segue destination="AdC-jd-Cla" kind="show" identifier="showFriendInfo" id="aHG-tW-NFs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -341,63 +341,65 @@
             <point key="canvasLocation" x="8717.6000000000004" y="-328.07881773399015"/>
         </scene>
         <!--Friend Collection View Controller-->
-        <scene sceneID="qUg-lY-9SW">
+        <scene sceneID="Gs0-r8-Xf1">
             <objects>
-                <collectionViewController id="q9c-gO-FHh" customClass="FriendCollectionViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="yio-ej-yZC">
+                <collectionViewController id="AdC-jd-Cla" customClass="FriendCollectionViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KC9-VD-61C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y8P-Da-Ayl">
-                            <size key="itemSize" width="375" height="318"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yco-0W-5tb">
+                            <size key="itemSize" width="375" height="374"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendInfo" id="WGl-6x-Syc" customClass="FriendCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendInfo" id="Q0T-QN-y2C" customClass="FriendCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t68-lp-hfz">
-                                            <rect key="frame" x="138.66666666666666" y="8" width="98" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xe3-B5-FuW">
+                                            <rect key="frame" x="138.66666666666666" y="8" width="98" height="40.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hci-Yh-c74">
-                                            <rect key="frame" x="59" y="45" width="257" height="257"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti7-1y-WWz">
+                                            <rect key="frame" x="59" y="58.666666666666657" width="257" height="257"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="hci-Yh-c74" secondAttribute="height" multiplier="15:15" id="tp5-39-9Ut"/>
+                                                <constraint firstAttribute="width" secondItem="Ti7-1y-WWz" secondAttribute="height" multiplier="1:1" id="chY-OF-p4k"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="t68-lp-hfz" firstAttribute="top" secondItem="WGl-6x-Syc" secondAttribute="top" constant="8" id="7R2-Zb-mev"/>
-                                    <constraint firstItem="hci-Yh-c74" firstAttribute="top" secondItem="t68-lp-hfz" secondAttribute="bottom" constant="16" id="AYD-NT-d04"/>
-                                    <constraint firstItem="hci-Yh-c74" firstAttribute="centerX" secondItem="WGl-6x-Syc" secondAttribute="centerX" id="JaP-eT-awF"/>
-                                    <constraint firstItem="t68-lp-hfz" firstAttribute="centerX" secondItem="WGl-6x-Syc" secondAttribute="centerX" id="Say-a6-evk"/>
-                                    <constraint firstItem="hci-Yh-c74" firstAttribute="leading" secondItem="WGl-6x-Syc" secondAttribute="leadingMargin" constant="51" id="qv3-Ej-8Zu"/>
+                                    <constraint firstItem="Ti7-1y-WWz" firstAttribute="top" secondItem="Xe3-B5-FuW" secondAttribute="bottom" constant="10" id="RjZ-Fx-3d4"/>
+                                    <constraint firstItem="Ti7-1y-WWz" firstAttribute="centerY" secondItem="Q0T-QN-y2C" secondAttribute="centerY" id="an2-sM-2SF"/>
+                                    <constraint firstItem="Xe3-B5-FuW" firstAttribute="centerX" secondItem="Q0T-QN-y2C" secondAttribute="centerX" id="etZ-h6-0di"/>
+                                    <constraint firstItem="Ti7-1y-WWz" firstAttribute="centerX" secondItem="Q0T-QN-y2C" secondAttribute="centerX" id="jsQ-TP-MS2"/>
+                                    <constraint firstItem="Xe3-B5-FuW" firstAttribute="top" secondItem="Q0T-QN-y2C" secondAttribute="top" constant="8" id="pFh-iX-2yK"/>
+                                    <constraint firstItem="Ti7-1y-WWz" firstAttribute="leading" secondItem="Q0T-QN-y2C" secondAttribute="leadingMargin" constant="51" id="qyC-lG-D7d"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="friendNameLabel" destination="t68-lp-hfz" id="Yx5-OT-3JQ"/>
-                                    <outlet property="friendPhotoView" destination="hci-Yh-c74" id="AUM-39-XD3"/>
+                                    <outlet property="friendNameLabel" destination="Xe3-B5-FuW" id="p1x-UM-rUC"/>
+                                    <outlet property="friendPhotoView" destination="Ti7-1y-WWz" id="lfN-Ee-mcB"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="q9c-gO-FHh" id="2wI-Dd-f6F"/>
-                            <outlet property="delegate" destination="q9c-gO-FHh" id="6cJ-UX-UI3"/>
+                            <outlet property="dataSource" destination="AdC-jd-Cla" id="DhA-1b-3ij"/>
+                            <outlet property="delegate" destination="AdC-jd-Cla" id="FLo-yz-LbY"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kxi-7E-z6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkJ-jO-U6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9501.6000000000004" y="-328.07881773399015"/>
+            <point key="canvasLocation" x="9502" y="-328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v8D-S9-EGo">

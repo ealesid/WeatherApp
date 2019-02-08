@@ -3,13 +3,18 @@ import UIKit
 class FriendCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var friendNameLabel: UILabel!
-    @IBOutlet weak var friendPhotoView: UIImageView!
+    @IBOutlet weak var friendPhotoView: UIView!
 
     func setFriend(_ friend: Friend) {
-        self.friendNameLabel.text = friend.name
-        self.friendPhotoView.image = friend.image
-//        self.friendPhotoView.setRounded()
+        
+        let imageView = UIImageView(frame: self.friendPhotoView.bounds)
+        imageView.image = friend.image
+        imageView.setRounded()
+
         self.friendPhotoView.setShadow()
+        self.friendPhotoView.addSubview(imageView)
+
+        self.friendNameLabel.text = friend.name        
     }
     
 }
