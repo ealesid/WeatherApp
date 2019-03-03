@@ -17,6 +17,7 @@
 		DBA04A4A22044EC30023F0FF /* NewGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA04A4922044EC30023F0FF /* NewGroupTableViewCell.swift */; };
 		DBA04A4C220453260023F0FF /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA04A4B220453260023F0FF /* GroupModel.swift */; };
 		DBA04A4E22046B160023F0FF /* AddGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA04A4D22046B160023F0FF /* AddGroupTableViewController.swift */; };
+		DBAE1182222C0C34005F0AC4 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE1181222C0C34005F0AC4 /* Session.swift */; };
 		DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */; };
 		DBBBB2E521F3307200F3C43F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E321F3307200F3C43F /* Main.storyboard */; };
 		DBBBB2E721F3307600F3C43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E621F3307600F3C43F /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		DBA04A4922044EC30023F0FF /* NewGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupTableViewCell.swift; sourceTree = "<group>"; };
 		DBA04A4B220453260023F0FF /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		DBA04A4D22046B160023F0FF /* AddGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupTableViewController.swift; sourceTree = "<group>"; };
+		DBAE1181222C0C34005F0AC4 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DBBBB2DC21F3307200F3C43F /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBBB2DF21F3307200F3C43F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBBB2E421F3307200F3C43F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				DBA04A3D220401B70023F0FF /* FriendModel.swift */,
 				DBA04A4B220453260023F0FF /* GroupModel.swift */,
+				DBAE1181222C0C34005F0AC4 /* Session.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBAE1182222C0C34005F0AC4 /* Session.swift in Sources */,
 				DBA04A44220428380023F0FF /* FriendCollectionViewCell.swift in Sources */,
 				DBA04A4E22046B160023F0FF /* AddGroupTableViewController.swift in Sources */,
 				DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */,
