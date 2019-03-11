@@ -103,8 +103,14 @@ class LoginFormController: UIViewController {
         }
         
         if user == self.demoUser && password == self.demoPassword {
-//            print("Login successful")
-            self.performSegue(withIdentifier: "appStart", sender: nil)
+            print("Login successful")
+            self.login(login: user, password: password) { [weak self] (error: Error?) in
+                if nil == error {
+                    self?.navigationController?.setNavigationBarHidden(true, animated: true)
+                    self?.performSegue(withIdentifier: "appStart", sender: nil)
+                }
+            }
+            
         } else {
             print("Wrong username or password")
         }
@@ -117,5 +123,12 @@ class LoginFormController: UIViewController {
     
     @IBAction func logoutAction(segue: UIStoryboardSegue) {
         
+    }
+}
+
+extension LoginFormController {
+    
+    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
+        self.navigationController?.pushViewController(VKLoginViewController(), animated: true)
     }
 }

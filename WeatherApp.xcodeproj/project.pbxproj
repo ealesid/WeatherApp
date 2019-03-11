@@ -23,6 +23,7 @@
 		DBBBB2E721F3307600F3C43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E621F3307600F3C43F /* Assets.xcassets */; };
 		DBBBB2EA21F3307600F3C43F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */; };
 		DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */; };
+		DBE972E62236C608006A151C /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE972E52236C608006A151C /* VKLoginViewController.swift */; };
 		DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAAD9221F4E12C00353476 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		DBBBB2EB21F3307600F3C43F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		DBBBB2F421F3353200F3C43F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		DBE972E52236C608006A151C /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
 		DBEAAD9221F4E12C00353476 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				DB82AF5022036DE500ECD9A1 /* GroupsTableViewController.swift */,
 				DBA04A4122041E7D0023F0FF /* FriendCollectionViewController.swift */,
 				DBA04A4D22046B160023F0FF /* AddGroupTableViewController.swift */,
+				DBE972E52236C608006A151C /* VKLoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				DBA04A44220428380023F0FF /* FriendCollectionViewCell.swift in Sources */,
 				DBA04A4E22046B160023F0FF /* AddGroupTableViewController.swift in Sources */,
 				DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */,
+				DBE972E62236C608006A151C /* VKLoginViewController.swift in Sources */,
 				DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */,
 				DBA04A4222041E7E0023F0FF /* FriendCollectionViewController.swift in Sources */,
 				DBA04A4A22044EC30023F0FF /* NewGroupTableViewCell.swift in Sources */,
