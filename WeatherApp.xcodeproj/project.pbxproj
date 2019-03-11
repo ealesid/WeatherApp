@@ -24,6 +24,8 @@
 		DBBBB2EA21F3307600F3C43F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBB2E821F3307600F3C43F /* LaunchScreen.storyboard */; };
 		DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */; };
 		DBE972E62236C608006A151C /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE972E52236C608006A151C /* VKLoginViewController.swift */; };
+		DBE972E82236E0FE006A151C /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE972E72236E0FE006A151C /* ApiManager.swift */; };
+		DBE972EA2236E555006A151C /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE972E92236E555006A151C /* RequestData.swift */; };
 		DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAAD9221F4E12C00353476 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		DBBBB2F121F3324C00F3C43F /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		DBBBB2F421F3353200F3C43F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DBE972E52236C608006A151C /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
+		DBE972E72236E0FE006A151C /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		DBE972E92236E555006A151C /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
 		DBEAAD9221F4E12C00353476 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,8 @@
 				DBA04A3D220401B70023F0FF /* FriendModel.swift */,
 				DBA04A4B220453260023F0FF /* GroupModel.swift */,
 				DBAE1181222C0C34005F0AC4 /* Session.swift */,
+				DBE972E72236E0FE006A151C /* ApiManager.swift */,
+				DBE972E92236E555006A151C /* RequestData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBE972E82236E0FE006A151C /* ApiManager.swift in Sources */,
 				DBAE1182222C0C34005F0AC4 /* Session.swift in Sources */,
 				DBA04A44220428380023F0FF /* FriendCollectionViewCell.swift in Sources */,
 				DBA04A4E22046B160023F0FF /* AddGroupTableViewController.swift in Sources */,
@@ -215,6 +222,7 @@
 				DBEAAD9321F4E12C00353476 /* Helpers.swift in Sources */,
 				DBA04A4222041E7E0023F0FF /* FriendCollectionViewController.swift in Sources */,
 				DBA04A4A22044EC30023F0FF /* NewGroupTableViewCell.swift in Sources */,
+				DBE972EA2236E555006A151C /* RequestData.swift in Sources */,
 				DBA04A4822043DAD0023F0FF /* GroupTableViewCell.swift in Sources */,
 				DB82AF54220382C500ECD9A1 /* FriendsTableViewCell.swift in Sources */,
 				DBBBB2F221F3324C00F3C43F /* LoginFormController.swift in Sources */,

@@ -5,6 +5,8 @@ class VKLoginViewController: UIViewController, WKNavigationDelegate {
     
     weak var webView: WKWebView?
     
+    var apiManager: ApiProtocol = ApiManager.shared
+    
     let client_id = "6895271"
     
     override func viewDidLoad() {
@@ -67,12 +69,29 @@ class VKLoginViewController: UIViewController, WKNavigationDelegate {
                     
                     if item.name == "access_token" {
                         print("Token is:\t\(String(describing: item.value))")
+                        
+//                        self.getFriends()
                     }
                 }
             }
         }
         
         decisionHandler(.allow)
+
     }
     
+    // Called when a web view receives a server redirect
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        print("webView didReceiveServerRedirectForProvisionalNavigation ->\t")
+        self.getFriends()
+    }
+    
+}
+
+extension VKLoginViewController {
+
+    func getFriends() {
+        self.apiManager.getFriends { (error: Error?) in }
+    }
+
 }
