@@ -3,11 +3,13 @@ import Foundation
 
 class FriendModel: Codable {
     var id: Int?
-    var first_name: String?
-    var last_name: String?
+    var first_name: String = ""
+    var last_name: String = ""
     var photo_50: String?
     var photo_100: String?
     var photo_200_orig: String?
+    
+    var name: String { return "\(first_name) \(last_name)" }
     
     enum CodingKeys: String, CodingKey {
         case id, first_name, last_name, photo_50, photo_100, photo_200_orig
