@@ -59,6 +59,7 @@ extension RequestData {
         var getParams: [String:String] = [:]
         getParams["v"] = "5.92"
         getParams["access_token"] = Session.userSession.token
+        getParams["fields"] = "photo_50,photo_100,photo_200_orig"
         requestData.getParams = getParams
         
         return requestData

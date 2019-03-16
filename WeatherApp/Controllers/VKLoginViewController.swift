@@ -69,8 +69,6 @@ class VKLoginViewController: UIViewController, WKNavigationDelegate {
                     
                     if item.name == "access_token" {
                         print("Token is:\t\(String(describing: item.value))")
-                        
-//                        self.getFriends()
                     }
                 }
             }
@@ -83,6 +81,10 @@ class VKLoginViewController: UIViewController, WKNavigationDelegate {
     // Called when a web view receives a server redirect
     func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         print("webView didReceiveServerRedirectForProvisionalNavigation ->\t")
+        self.navigationController?.pushViewController(
+            UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "AppStartController"),
+            animated: true
+        )
         self.getFriends()
     }
     
