@@ -9,6 +9,10 @@ class FriendModel: Codable {
     var photo_100: String?
     var photo_200_orig: String?
     
+    enum CodingKeys: String, CodingKey {
+        case id, first_name, last_name, photo_50, photo_100, photo_200_orig
+    }
+    
     init() {}
     
     required init(from decoder: Decoder) throws {
