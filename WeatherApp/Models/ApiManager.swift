@@ -63,7 +63,7 @@ private class URLSessionManager: ApiProtocol {
                 }
             }
             
-            completion(data, error)
+            OperationQueue.main.addOperation { completion(data, error) }
             
         })
         

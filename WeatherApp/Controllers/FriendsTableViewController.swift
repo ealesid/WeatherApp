@@ -14,7 +14,8 @@ class FriendsTableViewController: UITableViewController {
             guard let friendsList = response?.response.items else { return }
             print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")
             self.friends = friendsList
-            self.tableView.reloadData()
+            
+            OperationQueue.main.addOperation { self.tableView.reloadData() }
         }
         
         // Uncomment the following line to preserve selection between presentations
