@@ -11,7 +11,7 @@ class NewGroupTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setGroup(_ group: Group) {
+    func setGroup(_ group: GroupModel) {
         self.groupNameLabel.text = group.name
         self.groupImageView.image = group.image
     }

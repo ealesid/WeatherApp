@@ -2,7 +2,7 @@ import UIKit
 
 
 protocol AddGroupDelegate: class {
-    func addGroup(_ group: Group)
+    func addGroup(_ group: GroupModel)
 }
 
 
@@ -11,14 +11,16 @@ class AddGroupTableViewController: UITableViewController {
     // объект, который умеет добавлять группы
     weak var delegate: AddGroupDelegate?
     
-    private var groups: [Group] = [
-        Group(name: "1st Group", image: UIImage(named: "firstGroup")!),
-        Group(name: "2nd Group", image: UIImage(named: "secondGroup")!),
-        Group(name: "3rd Group", image: UIImage(named: "thirdGroup")!),
-        Group(name: "4th Group", image: UIImage(named: "groupNoPhoto")!),
-    ]
+//    private var groups: [Group] = [
+//        Group(name: "1st Group", image: UIImage(named: "firstGroup")!),
+//        Group(name: "2nd Group", image: UIImage(named: "secondGroup")!),
+//        Group(name: "3rd Group", image: UIImage(named: "thirdGroup")!),
+//        Group(name: "4th Group", image: UIImage(named: "groupNoPhoto")!),
+//        ]
     
-    var filteredGroups: [Group] = []
+    private var groups: [GroupModel] = []
+    
+    var filteredGroups: [GroupModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,7 @@ class AddGroupTableViewController: UITableViewController {
 
 //  Так как на текущем экране мы не знаем как добавить город, просто поручаем это делегату
 extension AddGroupTableViewController {
-    func addGroup(_ group: Group) {
+    func addGroup(_ group: GroupModel) {
         self.delegate?.addGroup(group)
     }
     
@@ -66,7 +68,7 @@ extension AddGroupTableViewController {
         
         for group in self.groups {
             if query.count > 0 {
-                isInFilter = (group.name?.lowercased().contains(query.lowercased()))!
+                isInFilter = (group.name.lowercased().contains(query.lowercased()))
             }
             
             if isInFilter {

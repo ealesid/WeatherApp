@@ -2,10 +2,19 @@ import UIKit
 
 class GroupsTableViewController: UITableViewController {
     
-    var groups: [Group] = []
+    var groups: [GroupModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ApiManager.shared.getGroups { (response: GroupsGet?, error: Error?) in
+            guard let groupsList = response?.response.items else { return }
+            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(groupsList)")
+            self.groups = groupsList
+            
+            OperationQueue.main.addOperation { self.tableView.reloadData() }
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -60,7 +69,7 @@ class GroupsTableViewController: UITableViewController {
 
 
 extension GroupsTableViewController: AddGroupDelegate {
-    func addGroup(_ group: Group) {
+    func addGroup(_ group: GroupModel) {
         self.groups.append(group)
         self.tableView.reloadData()
     }

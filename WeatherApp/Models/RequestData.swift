@@ -64,4 +64,19 @@ extension RequestData {
         
         return requestData
     }
+
+    static func createRequestForGroupsGet() -> RequestData {
+        let requestData = RequestData()
+        
+        requestData.path += "groups.get"
+        requestData.timeout = 60
+        
+        var getParams: [String:String] = [:]
+        getParams["v"] = "5.92"
+        getParams["access_token"] = Session.userSession.token
+        getParams["extended"] = "1"
+        requestData.getParams = getParams
+        
+        return requestData
+    }
 }

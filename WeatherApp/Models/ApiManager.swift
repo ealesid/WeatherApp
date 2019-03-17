@@ -4,7 +4,8 @@ protocol ApiProtocol: class {
     func login(login: String, password: String, completion: @escaping (Error?) -> ())
     
     func getFriends(completion: @escaping (FriendsGet?, Error?) -> ())
-    
+    func getGroups(completion: @escaping (GroupsGet?, Error?) -> ())
+
 }
 
 public class ApiManager {
@@ -32,6 +33,13 @@ private class URLSessionManager: ApiProtocol {
         let requestData = RequestData.createRequestForUsersGet()
         self.execute(requestData: requestData) { (data: Data?, error: Error?) in
             completion(Parser.parseFriendsGet(data: data), nil)
+        }
+    }
+    
+    func getGroups(completion: @escaping (GroupsGet?, Error?) -> ()) {
+        let requestData = RequestData.createRequestForGroupsGet()
+        self.execute(requestData: requestData) { (data: Data?, error: Error?) in
+            completion(Parser.parseGroupsGet(data: data), nil)
         }
     }
     
