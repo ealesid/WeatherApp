@@ -40,7 +40,7 @@ private class URLSessionManager: ApiProtocol {
     func execute(requestData: RequestData, completion: @escaping (Data?, Error?) -> ()) {
         
         if self.showLogs {
-            print("exeute \(String(describing: requestData.generateURL()))")
+            print("execute \(String(describing: requestData.generateURL()))")
         }
         
         guard let request = requestData.generateRequest() else {
