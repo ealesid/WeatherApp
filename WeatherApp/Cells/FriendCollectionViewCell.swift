@@ -6,16 +6,14 @@ class FriendCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var friendPhotoView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
-    func setFriend(_ friend: Friend) {
+    func setFriend(_ friend: FriendModel) {
         
-//        let imageView = UIImageView(frame: self.friendPhotoView.bounds)
         imageView.image = friend.image
         imageView.setRounded()
-
+        
         self.friendPhotoView.setShadow()
         self.friendPhotoView.addSubview(imageView)
-
-        self.friendNameLabel.text = friend.name        
+        
+        self.friendNameLabel.text = friend.name
     }
-    
 }

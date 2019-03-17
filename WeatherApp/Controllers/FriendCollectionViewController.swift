@@ -4,7 +4,7 @@ private let reuseIdentifier = "friendInfo"
 
 class FriendCollectionViewController: UICollectionViewController {
     
-    var friend: Friend!
+    var friend: FriendModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
