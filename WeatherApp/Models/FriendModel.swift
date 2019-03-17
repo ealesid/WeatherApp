@@ -22,8 +22,14 @@ class FriendModel: Codable {
     var photo_200_orig: String?
     
     var name: String { return "\(first_name) \(last_name)" }
-    var image: UIImage?
-    
+
+    var image: UIImage? {
+        guard let url = photo_50 else { return UIImage(named: "noPhoto") }
+        let imageData: Data? = try? Data(contentsOf: URL(string: url)!)
+        if let data = imageData { return UIImage(data: data) }
+        return UIImage(named: "noPhoto")
+    }
+
     enum CodingKeys: String, CodingKey {
         case id, first_name, last_name, photo_50, photo_100, photo_200_orig
     }
