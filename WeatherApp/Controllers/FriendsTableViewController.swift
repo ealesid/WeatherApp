@@ -3,6 +3,8 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
+//    var friends: [FriendModel] = []
+    
     var friends: [Friend] = [
         Friend(name: "1st Friend", image: UIImage(named: "firstFriend")!),
         Friend(name: "2nd Friend", image: UIImage(named: "secondFriend")!),
@@ -14,6 +16,12 @@ class FriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
+            guard let friendsList = response?.response.items else { return }
+            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")
+        }
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

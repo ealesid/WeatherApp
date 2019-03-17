@@ -5,7 +5,7 @@ class VKLoginViewController: UIViewController, WKNavigationDelegate {
     
     weak var webView: WKWebView?
     
-    var apiManager: ApiProtocol = ApiManager.shared
+//    var apiManager: ApiProtocol = ApiManager.shared
     
     let client_id = "6895271"
     
@@ -85,15 +85,15 @@ class VKLoginViewController: UIViewController, WKNavigationDelegate {
             UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "AppStartController"),
             animated: true
         )
-        self.getFriends()
+//        self.getFriends()
     }
     
 }
 
-extension VKLoginViewController {
-
-    func getFriends() {
-        self.apiManager.getFriends { (error: Error?) in }
-    }
-
-}
+//extension VKLoginViewController {
+//
+//    func getFriends() {
+//        self.apiManager.getFriends { (error: Error?) in }
+//    }
+//
+//}

@@ -3,7 +3,7 @@ import Foundation
 protocol ApiProtocol: class {
     func login(login: String, password: String, completion: @escaping (Error?) -> ())
     
-    func getFriends(completion: @escaping (Error?) -> ())
+    func getFriends(completion: @escaping (FriendsGet?, Error?) -> ())
     
 }
 
@@ -28,9 +28,11 @@ private class URLSessionManager: ApiProtocol {
         completion(nil)
     }
     
-    func getFriends(completion: @escaping (Error?) -> ()) {
+    func getFriends(completion: @escaping (FriendsGet?, Error?) -> ()) {
         let requestData = RequestData.createRequestForUsersGet()
-        self.execute(requestData: requestData) { (data: Data?, error: Error?) in completion(error) }
+        self.execute(requestData: requestData) { (data: Data?, error: Error?) in
+            completion(Parser.parseFriendsGet(data: data), nil)
+        }
     }
     
     // MARK: -
