@@ -2,13 +2,19 @@ import UIKit
 
 extension UITextField {
     func underlined() {
-        let border = CALayer()
-        let width = CGFloat(0.2)
-        border.borderColor = UIColor.lightGray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
-        border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
+        
+        let underlined = "underlined"
+        
+        if !(self.layer.sublayers?.contains { $0.name == underlined })! {
+            let border = CALayer()
+            border.name = underlined
+            let width = CGFloat(0.2)
+            border.borderColor = UIColor.lightGray.cgColor
+            border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
+            border.borderWidth = width
+            self.layer.addSublayer(border)
+            self.layer.masksToBounds = true
+        }
     }
 }
 
@@ -59,10 +65,13 @@ extension UIView {
     func setShadow() {
         self.backgroundColor = nil
         self.clipsToBounds = false
+        
+//        Commented beacuse of shadow have to be set up from Interface Builder
 //        self.layer.shadowColor = UIColor.darkGray.cgColor
 //        self.layer.shadowOpacity = 0.5
 //        self.layer.shadowOffset = CGSize.zero
 //        self.layer.shadowRadius = 5
+        
         self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: frame.width / 2).cgPath
     }
 }
