@@ -16,7 +16,7 @@ class FriendsTableViewController: UITableViewController {
         
         FriendsManager.shared.removeAllFriends()
         
-        if let friends = FriendsManager.shared.getAllFriends() { self.friends = friends }
+        FriendsManager.shared.getAllFriends() {}
         
 //        ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
 //            guard let friendsList = response?.response.items else { return }
