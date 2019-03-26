@@ -1,5 +1,7 @@
 import UIKit
 
+import RealmSwift
+
 
 class FriendsTableViewController: UITableViewController {
     
@@ -10,19 +12,20 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
-            guard let friendsList = response?.response.items else { return }
-            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")
-            self.friends = friendsList
-            
-            OperationQueue.main.addOperation { self.tableView.reloadData() }
-        }
+        try? FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        FriendsManager.shared.removeAllFriends()
+        
+        if let friends = FriendsManager.shared.getAllFriends() { self.friends = friends }
+        
+//        ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
+//            guard let friendsList = response?.response.items else { return }
+//            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")
+//            self.friends = friendsList
+//
+//            OperationQueue.main.addOperation { self.tableView.reloadData() }
+//        }
+        
     }
 
     // MARK: - Table view data source

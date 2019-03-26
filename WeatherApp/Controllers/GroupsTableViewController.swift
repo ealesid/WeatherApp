@@ -1,5 +1,7 @@
 import UIKit
 
+import RealmSwift
+
 class GroupsTableViewController: UITableViewController {
     
     var groups: [GroupModel] = []
@@ -11,6 +13,16 @@ class GroupsTableViewController: UITableViewController {
             guard let groupsList = response?.response.items else { return }
             print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(groupsList)")
             self.groups = groupsList
+            
+            do {
+                let realm = try Realm()
+                print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(String(describing: realm.configuration.fileURL))")
+                realm.beginWrite()
+                realm.add(self.groups)
+                try realm.commitWrite()
+            } catch {
+                print("\n\(#file)\n\t\(#function)\t\(#line)\n\tReal write error\t\(error)")
+            }
             
             OperationQueue.main.addOperation { self.tableView.reloadData() }
         }

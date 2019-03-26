@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5DE0E16D618811AE01EE19D7 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592526296AAC286924FDEC8F /* Pods_WeatherApp.framework */; };
 		A91CB414A547DD5B8C274AE4 /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB367F421537B5704EE20F /* Pods_WeatherAppTests.framework */; };
+		DB18D9C02249413100F3A4DC /* FriendsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18D9BF2249413100F3A4DC /* FriendsManager.swift */; };
 		DB3E8F2B223D819600A57CCA /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E8F2A223D819600A57CCA /* WeatherAppTests.swift */; };
 		DB3E8F33223D81AB00A57CCA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E8F32223D81AB00A57CCA /* Parser.swift */; };
 		DB3E8F34223D81AB00A57CCA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E8F32223D81AB00A57CCA /* Parser.swift */; };
@@ -50,6 +51,7 @@
 		6EAB367F421537B5704EE20F /* Pods_WeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		970D9E0AA679E56E8E77E10D /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		CF3160122F7542EAA36BA730 /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB18D9BF2249413100F3A4DC /* FriendsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsManager.swift; sourceTree = "<group>"; };
 		DB3E8F28223D819600A57CCA /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB3E8F2A223D819600A57CCA /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		DB3E8F2C223D819600A57CCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,7 +119,6 @@
 				CF3160122F7542EAA36BA730 /* Pods-WeatherAppTests.debug.xcconfig */,
 				F11751A9D5713C51735FB4ED /* Pods-WeatherAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -150,6 +151,7 @@
 				DBE972E72236E0FE006A151C /* ApiManager.swift */,
 				DBE972E92236E555006A151C /* RequestData.swift */,
 				DB3E8F32223D81AB00A57CCA /* Parser.swift */,
+				DB18D9BF2249413100F3A4DC /* FriendsManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +400,7 @@
 				DBE972E82236E0FE006A151C /* ApiManager.swift in Sources */,
 				DBAE1182222C0C34005F0AC4 /* Session.swift in Sources */,
 				DBA04A44220428380023F0FF /* FriendCollectionViewCell.swift in Sources */,
+				DB18D9C02249413100F3A4DC /* FriendsManager.swift in Sources */,
 				DBA04A4E22046B160023F0FF /* AddGroupTableViewController.swift in Sources */,
 				DBBBB2E021F3307200F3C43F /* AppDelegate.swift in Sources */,
 				DBE972E62236C608006A151C /* VKLoginViewController.swift in Sources */,

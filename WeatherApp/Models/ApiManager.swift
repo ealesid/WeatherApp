@@ -67,7 +67,7 @@ private class URLSessionManager: ApiProtocol {
                 
                 if let responseData = data {
                     let dataString = String(data: responseData, encoding: .utf8)
-                    print("dataString:\t\(String(describing: dataString))")
+//                    print("dataString:\t\(String(describing: dataString))")
                 }
             }
             

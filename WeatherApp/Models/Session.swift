@@ -1,7 +1,7 @@
 import Foundation
 
 private let _userId = 4374588
-private let _token = "2ce5490b244a3f06c674fbaf1c1c69e3e9823687583d068e0bf10498d931e27f6fb4a536ddc28343a2500"
+private let _token = "ff93a5f19aeb65058dd3730f4137cc0bb7577fe72afcd63cf724f5033f6494e1cf4faef6511e2e23b93b0"
 
 class Session {
     
