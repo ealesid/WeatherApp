@@ -13,10 +13,7 @@ class FriendsManager {
         do {
             let realm = try Realm()
             let allFriends = realm.objects(FriendModel.self)
-            print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(realm.configuration.fileURL)")
-            print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(allFriends)")
             try realm.write { realm.delete(allFriends) }
-            print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(realm.objects(FriendModel.self))")
         } catch {
             print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(error)")
         }
