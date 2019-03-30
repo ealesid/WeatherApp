@@ -28,37 +28,25 @@ class FriendsManager {
         return []
     }
     
-    41private func fetchFriends(completion: @escaping ([FriendModel], Error?) -> ()) {
-        
+    private func fetchFriends(completion: @escaping ([FriendModel], Error?) -> ()) {
         ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
             guard let friendsList = response?.response.items else { return }
             completion(friendsList, nil)
-//            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")
+            OperationQueue.main.addOperation { completion(friendsList, nil) }
         }
     }
     
-    private func saveFriends(_ friends: [FriendModel], error: Error?) {
-        print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friends)")
-        self.friends = friends
-
-    }
-    
-    func getAllFriends() -> [FriendModel]? {
-
-        fetchFriends { (friends: [FriendModel], error: Error?) in
-            self.saveFriends(friends, error: error)
-        }
+    func getAllFriends(completion: @escaping ([FriendModel]?, Error?) -> ()) {
         
+        print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(completion)")
+        fetchFriends(completion: completion)
+
         
-        return self.friends
-    }
-    
-//    func getAllFriends(completion: @escaping ([FriendModel]?, Error?) -> ()) {
 //        if let friends = getAllFriendsFromDB(), friends.count > 0 {
 //            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friends)")
 //        }
 //        if let friends = fetchFriends(completion: completion), friends.count > 0 {
 //            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friends)")
 //        }
-//    }
+    }
 }
