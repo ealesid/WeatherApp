@@ -16,11 +16,16 @@ class FriendsTableViewController: UITableViewController {
         
         FriendsManager.shared.removeAllFriends()
         
+<<<<<<< HEAD
         FriendsManager.shared.getAllFriends { (friends: [FriendModel], error: Error?) in
             self.friends = friends
             OperationQueue.main.addOperation { self.tableView.reloadData() }
         }
 
+=======
+        FriendsManager.shared.getAllFriends() {}
+        
+>>>>>>> c63ca565f22a8d2767a663539f259ec5bae3f5d4
 //        ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
 //            guard let friendsList = response?.response.items else { return }
 //            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")

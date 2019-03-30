@@ -6,7 +6,11 @@ import RealmSwift
 class FriendsManager {
     
     static let shared = FriendsManager()
+<<<<<<< HEAD
     
+=======
+        
+>>>>>>> c63ca565f22a8d2767a663539f259ec5bae3f5d4
     private init() {}
     
     func removeAllFriends() {
@@ -25,6 +29,7 @@ class FriendsManager {
         return []
     }
     
+<<<<<<< HEAD
 
     private func fetchFriends(completion: @escaping ([FriendModel], Error?) -> ()) {
         ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
@@ -39,5 +44,21 @@ class FriendsManager {
         } else {
             fetchFriends(completion: completion)
         }
+=======
+    private func fetchFriends() -> [FriendModel] {
+        
+        ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
+            guard let friendsList = response?.response.items else { return }
+//            print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(friendsList)")
+        }
+    }
+    
+    
+    func getAllFriends() -> [FriendModel]? {
+        if let friends = getAllFriendsFromDB(), friends.count > 0 { return friends }
+        if let friends = fetchFriends(), friends.count > 0 { return friends }
+
+        return []
+>>>>>>> c63ca565f22a8d2767a663539f259ec5bae3f5d4
     }
 }
