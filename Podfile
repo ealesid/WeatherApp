@@ -7,6 +7,8 @@ target 'WeatherApp' do
 
   # Pods for WeatherApp
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 
 
   target 'WeatherAppTests' do
