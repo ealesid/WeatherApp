@@ -26,7 +26,7 @@ class AddGroupTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let groupsTableVC = self.delegate as! GroupsTableViewController
-        self.filteredGroups = self.groups.filter { !groupsTableVC.groups.contains($0) }
+        self.filteredGroups = self.groups.filter { !groupsTableVC.groups!.contains($0) }
     }
     
     // MARK: - Table view data source
