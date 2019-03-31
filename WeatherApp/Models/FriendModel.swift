@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 import RealmSwift
-import Realm
 
 
 class FriendModel: Object, Codable {
@@ -26,10 +25,8 @@ class FriendModel: Object, Codable {
         case id, first_name, last_name, photo_50, photo_100, photo_200_orig
     }
     
-    required init() { super.init() }
-    
-    required init(from decoder: Decoder) throws {
-        super.init()
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         first_name = try container.decode(String.self, forKey: .first_name)
@@ -38,10 +35,6 @@ class FriendModel: Object, Codable {
         photo_100 = try container.decode(String.self, forKey: .photo_100)
         photo_200_orig = try container.decode(String.self, forKey: .photo_200_orig)
     }
-    
-    required init(value: Any, schema: RLMSchema) { fatalError("init(value:schema:) has not been implemented") }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) { fatalError("init(realm:schema:) has not been implemented") }
     
     override static func primaryKey() -> String? { return "id" }
     override static func indexedProperties() -> [String] {return ["first_name", "last_name", ] }

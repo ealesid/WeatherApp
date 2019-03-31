@@ -16,7 +16,7 @@ class FriendsManager {
     func removeAllFriends() {
         do {
             let realm = try Realm()
-            let allFriends = realm.objects(GroupModel.self)
+            let allFriends = realm.objects(FriendModel.self)
             try realm.write { realm.delete(allFriends) }
         } catch {
             print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(error)")
@@ -34,7 +34,19 @@ class FriendsManager {
     private func fetchFriends(completion: @escaping ([FriendModel], Error?) -> ()) {
         ApiManager.shared.getFriends { (response: FriendsGet?, error: Error?) in
             guard let friendsList = response?.response.items else { return }
+            self.saveFriends(friendsList)
             completion(friendsList, nil)
+        }
+    }
+    
+    private func saveFriends(_ friendsList: [FriendModel]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(friendsList)
+            try realm.commitWrite()
+        } catch {
+            print("\n\(#file)\n\t\(#function)\t\(#line)\n\t\(error)")
         }
     }
     
