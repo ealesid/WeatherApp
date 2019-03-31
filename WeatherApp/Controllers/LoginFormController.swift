@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 
 class LoginFormController: UIViewController {
@@ -63,6 +64,52 @@ class LoginFormController: UIViewController {
             print("Wrong username or password")
         }
     }
+    
+    @IBAction func signupButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Register", message: "Register", preferredStyle: .alert)
+        alert.addTextField { textEmail in textEmail.placeholder = "Enter your email" }
+        alert.addTextField { textPassword in
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "Enter your password"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let emailField = alert.textFields?[0],
+                let passwordField = alert.textFields?[1],
+                let email = emailField.text,
+                let password = passwordField.text else { return }
+            
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] user, error in
+                if let error = error {
+                    self?.showErrorAlert(title: "Error", message: error.localizedDescription)
+                } else {
+                    Auth.auth().signIn(withEmail: email, password: password)
+                }
+            }
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+
+    }
+    
+    
+    // MARK: - Alert
+    
+    func showErrorAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let alertCancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction) in
+            print("alertCancelAction")
+        }
+        alertController.addAction(alertCancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     @IBAction func closeKeyboardAction() { self.view.endEditing(true) }
     

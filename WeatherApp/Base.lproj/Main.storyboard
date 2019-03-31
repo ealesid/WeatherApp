@@ -28,7 +28,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjP-Fi-aKM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -66,6 +66,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fE-d8-1Gb">
+                                        <rect key="frame" x="160.66666666666666" y="257" width="54" height="30"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signupButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Zx-3P-R6k"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -81,7 +90,9 @@
                                     <constraint firstItem="vsu-JR-IOd" firstAttribute="top" secondItem="z0c-7s-vsY" secondAttribute="bottom" constant="40" id="NoI-Cr-Gak"/>
                                     <constraint firstItem="e6H-aG-dc3" firstAttribute="centerX" secondItem="fF5-eg-jpX" secondAttribute="centerX" id="ONF-FP-kv5"/>
                                     <constraint firstItem="gR9-qo-Vq3" firstAttribute="top" secondItem="fF5-eg-jpX" secondAttribute="top" id="Oa9-Xi-q0a"/>
+                                    <constraint firstItem="5fE-d8-1Gb" firstAttribute="centerX" secondItem="fF5-eg-jpX" secondAttribute="centerX" id="RAP-BM-Oad"/>
                                     <constraint firstItem="1qY-AT-9Oo" firstAttribute="top" secondItem="e6H-aG-dc3" secondAttribute="bottom" constant="40" id="WtR-um-WBn"/>
+                                    <constraint firstItem="5fE-d8-1Gb" firstAttribute="top" secondItem="1qY-AT-9Oo" secondAttribute="bottom" constant="8" id="ZTp-ua-5iq"/>
                                     <constraint firstItem="z0c-7s-vsY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gR9-qo-Vq3" secondAttribute="trailing" constant="15" id="aoV-4r-uwt"/>
                                     <constraint firstItem="1qY-AT-9Oo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gR9-qo-Vq3" secondAttribute="trailing" constant="15" id="erp-s9-HS4"/>
                                     <constraint firstItem="e6H-aG-dc3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gR9-qo-Vq3" secondAttribute="trailing" constant="15" id="f14-ja-tXF"/>
@@ -445,7 +456,6 @@
                     <tabBarItem key="tabBarItem" title="Friends" id="9PP-f5-jgE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PcJ-5L-qh7">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -464,7 +474,6 @@
                     <tabBarItem key="tabBarItem" title="Groups" id="1Wf-nm-xrB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rRe-Se-M3A">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
