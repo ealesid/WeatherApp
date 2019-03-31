@@ -105,7 +105,7 @@ class GroupsTableViewController: UITableViewController {
         // Проверка перехода (на экран добавления группы)
         if segue.identifier == "addGroup", let dvc = segue.destination as? AddGroupTableViewController {
         // Оповещаем экран добавления группы что мы умеем добавлять группы (устанавливаем себя делегатом)
-            dvc.delegate = self as! AddGroupDelegate
+            dvc.delegate = self
         }
     }
 
@@ -118,3 +118,17 @@ class GroupsTableViewController: UITableViewController {
 //        self.tableView.reloadData()
 //    }
 //}
+
+
+extension GroupsTableViewController: AddGroupDelegate {
+    func addGroup(_ group: GroupModel) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(group)
+            try realm.commitWrite()
+        } catch {
+            print("\n\(#file)\n\t\(#function):\t\(#line)\n\tAdd group error:\n\t\(error)")
+        }
+    }
+}
