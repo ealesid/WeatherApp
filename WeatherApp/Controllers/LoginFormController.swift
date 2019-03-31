@@ -145,7 +145,13 @@ class LoginFormController: UIViewController {
     
     @IBAction func closeKeyboardAction() { self.view.endEditing(true) }
     
-    @IBAction func logoutAction(segue: UIStoryboardSegue) {}
+    @IBAction func logoutAction(segue: UIStoryboardSegue) {
+        do {
+            try Auth.auth().signOut()
+        } catch (let error) {
+            print("\n\(#file)\n\t\(#function):\t\(#line)\n\tAuth sign out error:\t\(error)")
+        }
+    }
 }
 
 
