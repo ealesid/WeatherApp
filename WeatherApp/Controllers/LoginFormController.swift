@@ -9,8 +9,10 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-    private let demoUser = "123"
-    private let demoPassword = "456"
+    private let demoUser = "ealesid@gmail.com"
+    private let demoPassword = "123"
+    
+    private var handle: AuthStateDidChangeListenerHandle!
     
 
     // MARK: - Lifecycle
@@ -30,8 +32,17 @@ class LoginFormController: UIViewController {
         
         self.loginInput.underlined()
         self.passwordInput.underlined()
+        self.passwordInput.isSecureTextEntry = true
         
         self.addNotifications()
+        
+        self.handle = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "appStart", sender: nil)
+                self.loginInput.text = nil
+                self.passwordInput.text = nil
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,29 +50,50 @@ class LoginFormController: UIViewController {
         self.removeNotifications()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle)
+    }
+    
     
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        guard let user = self.loginInput?.text else {
-            print("Login Input Field error")
-            return
-        }
-        guard let password = self.passwordInput?.text else {
-            print("Password Input Filed error")
+        
+//        guard let user = self.loginInput?.text else {
+//            print("Login Input Field error")
+//            return
+//        }
+//        guard let password = self.passwordInput?.text else {
+//            print("Password Input Filed error")
+//            return
+//        }
+//
+//        if user == self.demoUser && password == self.demoPassword {
+//            print("Login successful")
+//            self.login(login: user, password: password) { [weak self] (error: Error?) in
+//                if nil == error {
+//                    self?.navigationController?.setNavigationBarHidden(true, animated: true)
+//                    self?.performSegue(withIdentifier: "appStart", sender: nil)
+//                }
+//            }
+//        } else {
+//            print("Wrong username or password")
+//        }
+        
+        guard
+            let email = self.loginInput.text,
+            let password = self.passwordInput.text,
+            email.count > 0,
+            password.count > 0
+        else {
+            self.showErrorAlert(title: "Error", message: "Login/password required!")
             return
         }
         
-        if user == self.demoUser && password == self.demoPassword {
-            print("Login successful")
-            self.login(login: user, password: password) { [weak self] (error: Error?) in
-                if nil == error {
-                    self?.navigationController?.setNavigationBarHidden(true, animated: true)
-                    self?.performSegue(withIdentifier: "appStart", sender: nil)
-                }
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
+            if let error = error, user == nil {
+                self.showErrorAlert(title: "Error", message: error.localizedDescription)
             }
-        } else {
-            print("Wrong username or password")
         }
     }
     
@@ -117,11 +149,11 @@ class LoginFormController: UIViewController {
 }
 
 
-extension LoginFormController {
-    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
-        self.navigationController?.pushViewController(VKLoginViewController(), animated: true)
-    }
-}
+//extension LoginFormController {
+//    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
+//        self.navigationController?.pushViewController(VKLoginViewController(), animated: true)
+//    }
+//}
 
 
 extension LoginFormController {
