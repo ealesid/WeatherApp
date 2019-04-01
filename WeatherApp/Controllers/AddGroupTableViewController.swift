@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseDatabase
 
 
 protocol AddGroupDelegate: class {
@@ -22,11 +23,22 @@ class AddGroupTableViewController: UITableViewController {
     
     var filteredGroups: [GroupModel] = []
     
+    private var newGroups: [FireBaseGroupModel] = []
+    private let ref = Database.database().reference(withPath: "groups")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let groupsTableVC = self.delegate as! GroupsTableViewController
-        self.filteredGroups = self.groups.filter { !groupsTableVC.groups!.contains($0) }
+        ApiManager.shared.getGroups { (response: GroupsGet?, error: Error?) in
+            guard let groupsList = response?.response.items else { return }
+            self.groups = groupsList
+            self.filteredGroups = groupsList
+            OperationQueue.main.addOperation { self.tableView.reloadData() }
+        }
+
+        
+//        let groupsTableVC = self.delegate as! GroupsTableViewController
+//        self.filteredGroups = self.groups.filter { !groupsTableVC.groups!.contains($0) }
     }
     
     // MARK: - Table view data source
@@ -57,10 +69,29 @@ class AddGroupTableViewController: UITableViewController {
 
 //  Так как на текущем экране мы не знаем как добавить город, просто поручаем это делегату
 extension AddGroupTableViewController {
+//    func addGroup(_ group: GroupModel) {
+//        self.delegate?.addGroup(group)
+//    }
+
     func addGroup(_ group: GroupModel) {
-        self.delegate?.addGroup(group)
+        let alertVC = UIAlertController(title: "Add new group", message: nil, preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            let newGroup = FireBaseGroupModel(name: group.name, id: group.id)
+            let groupRef = self.ref.child(group.name.lowercased())
+            groupRef.setValue(newGroup.toAnyObject())
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertVC.addTextField { groupName in groupName.text = group.name }
+        
+        alertVC.addAction(saveAction)
+        alertVC.addAction(cancelAction)
+        
+        present(alertVC, animated: true, completion: nil)
     }
-    
+
     func filter(query: String) {
         self.filteredGroups.removeAll()
         

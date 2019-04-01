@@ -12,6 +12,7 @@
 		DB18D9C02249413100F3A4DC /* FriendsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18D9BF2249413100F3A4DC /* FriendsManager.swift */; };
 		DB18D9C2224FC4F100F3A4DC /* GroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18D9C1224FC4F100F3A4DC /* GroupsManager.swift */; };
 		DB18D9C42250E9CF00F3A4DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB18D9C32250E9CF00F3A4DC /* GoogleService-Info.plist */; };
+		DB18D9C62251211700F3A4DC /* FireBaseGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18D9C52251211700F3A4DC /* FireBaseGroupModel.swift */; };
 		DB3E8F2B223D819600A57CCA /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E8F2A223D819600A57CCA /* WeatherAppTests.swift */; };
 		DB3E8F33223D81AB00A57CCA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E8F32223D81AB00A57CCA /* Parser.swift */; };
 		DB3E8F34223D81AB00A57CCA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E8F32223D81AB00A57CCA /* Parser.swift */; };
@@ -56,6 +57,7 @@
 		DB18D9BF2249413100F3A4DC /* FriendsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsManager.swift; sourceTree = "<group>"; };
 		DB18D9C1224FC4F100F3A4DC /* GroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsManager.swift; sourceTree = "<group>"; };
 		DB18D9C32250E9CF00F3A4DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DB18D9C52251211700F3A4DC /* FireBaseGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseGroupModel.swift; sourceTree = "<group>"; };
 		DB3E8F28223D819600A57CCA /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB3E8F2A223D819600A57CCA /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		DB3E8F2C223D819600A57CCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				DB3E8F32223D81AB00A57CCA /* Parser.swift */,
 				DB18D9BF2249413100F3A4DC /* FriendsManager.swift */,
 				DB18D9C1224FC4F100F3A4DC /* GroupsManager.swift */,
+				DB18D9C52251211700F3A4DC /* FireBaseGroupModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -343,6 +347,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +417,7 @@
 			files = (
 				DBE972E82236E0FE006A151C /* ApiManager.swift in Sources */,
 				DBAE1182222C0C34005F0AC4 /* Session.swift in Sources */,
+				DB18D9C62251211700F3A4DC /* FireBaseGroupModel.swift in Sources */,
 				DBA04A44220428380023F0FF /* FriendCollectionViewCell.swift in Sources */,
 				DB18D9C02249413100F3A4DC /* FriendsManager.swift in Sources */,
 				DBA04A4E22046B160023F0FF /* AddGroupTableViewController.swift in Sources */,

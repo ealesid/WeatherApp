@@ -89,7 +89,14 @@ class LoginFormController: UIViewController {
             self.showErrorAlert(title: "Error", message: "Login/password required!")
             return
         }
-        
+
+        self.login(login: email, password: password) { [weak self] (error: Error?) in
+            if nil == error {
+                self?.navigationController?.setNavigationBarHidden(true, animated: true)
+                self?.performSegue(withIdentifier: "appStart", sender: nil)
+            }
+        }
+
         Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if let error = error, user == nil {
                 self.showErrorAlert(title: "Error", message: error.localizedDescription)
@@ -155,11 +162,11 @@ class LoginFormController: UIViewController {
 }
 
 
-//extension LoginFormController {
-//    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
-//        self.navigationController?.pushViewController(VKLoginViewController(), animated: true)
-//    }
-//}
+extension LoginFormController {
+    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
+        self.navigationController?.pushViewController(VKLoginViewController(), animated: true)
+    }
+}
 
 
 extension LoginFormController {

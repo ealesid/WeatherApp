@@ -83,7 +83,7 @@ class Parser {
 
     static func parseGroupsGet(data: Data?) -> GroupsGet? {
         guard let data = data else { return nil }
-        
+
         do {
             let decoder = JSONDecoder()
             let response: GroupsGet = try decoder.decode(GroupsGet.self, from: data)
