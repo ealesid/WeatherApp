@@ -15,5 +15,10 @@ class GroupTableViewCell: UITableViewCell {
         self.groupNameLabel.text = group.name
         self.groupImageView.image = group.image
     }
-
+    
+    func setGroup(_ group: FireBaseGroupModel) {
+        self.groupNameLabel.text = group.name
+        self.groupImageView.image = group.image
+    }
+    
 }

@@ -1,19 +1,40 @@
 import UIKit
 
+import FirebaseDatabase
 import RealmSwift
+
 
 class GroupsTableViewController: UITableViewController {
     
-    var groups: Results<GroupModel>?
+    private let ref = Database.database().reference(withPath: "groups")
     
-    var token: NotificationToken?
+    var groups: [FireBaseGroupModel] = []
+
+
+//    var groups: Results<GroupModel>?
+    
+//    var token: NotificationToken?
     
 //    var groups: [GroupModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.reloadGroups()
+        ref.observe(.value, with: { snapshot in
+            var groups: [FireBaseGroupModel] = []
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                    let group = FireBaseGroupModel(snapshot: snapshot) {
+                    groups.append(group)
+                }
+            }
+            
+            self.groups = groups
+            
+            self.tableView.reloadData()
+        })
+        
+//        self.reloadGroups()
         
 //        GroupsManager.shared.removeAllGroups()
         
@@ -39,32 +60,32 @@ class GroupsTableViewController: UITableViewController {
     }
     
     
-    // MARK: - Reload
-    
-    func reloadGroups() {
-        var realm: Realm?
-        do {
-            realm = try Realm()
-        } catch {
-            print("\n\(#file)\n\t\(#function):\t\(#line)\n\tRealm exception")
-        }
-        
-        self.groups = realm?.objects(GroupModel.self)
-        self.token = self.groups?.observe({ (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial(_):
-                self.tableView.reloadData()
-            case .update(let groups, let deletions, let insertions, let modifications):
-                    self.tableView.beginUpdates()
-                    self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .middle)
-                    self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0) }), with: .middle)
-                    self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .middle)
-                    self.tableView.endUpdates()
-            case .error(let error):
-                print("\n\(#file)\n\t\(#function):\t\(#line)\n\tGroupsTable update error:\n\t\(error)")
-            }
-        })
-    }
+//     MARK: - Reload
+//
+//    func reloadGroups() {
+//        var realm: Realm?
+//        do {
+//            realm = try Realm()
+//        } catch {
+//            print("\n\(#file)\n\t\(#function):\t\(#line)\n\tRealm exception")
+//        }
+//
+//        self.groups = realm?.objects(GroupModel.self)
+//        self.token = self.groups?.observe({ (changes: RealmCollectionChange) in
+//            switch changes {
+//            case .initial(_):
+//                self.tableView.reloadData()
+//            case .update(let groups, let deletions, let insertions, let modifications):
+//                    self.tableView.beginUpdates()
+//                    self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .middle)
+//                    self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0) }), with: .middle)
+//                    self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .middle)
+//                    self.tableView.endUpdates()
+//            case .error(let error):
+//                print("\n\(#file)\n\t\(#function):\t\(#line)\n\tGroupsTable update error:\n\t\(error)")
+//            }
+//        })
+//    }
     
 
     // MARK: - Table view data source
@@ -74,12 +95,12 @@ class GroupsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.groups?.count ?? 0
+        return self.groups.count 
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell", for: indexPath) as! GroupTableViewCell
-        cell.setGroup(self.groups![indexPath.row])
+        cell.setGroup(self.groups[indexPath.row])
         return cell
     }
 
@@ -112,23 +133,42 @@ class GroupsTableViewController: UITableViewController {
 }
 
 
-//extension GroupsTableViewController: AddGroupDelegate {
+extension GroupsTableViewController: AddGroupDelegate {
+
 //    func addGroup(_ group: GroupModel) {
 //        self.groups.append(group)
 //        self.tableView.reloadData()
 //    }
-//}
 
-
-extension GroupsTableViewController: AddGroupDelegate {
+    
+//    func addGroup(_ group: GroupModel) {
+//        do {
+//            let realm = try Realm()
+//            realm.beginWrite()
+//            realm.add(group)
+//            try realm.commitWrite()
+//        } catch {
+//            print("\n\(#file)\n\t\(#function):\t\(#line)\n\tAdd group error:\n\t\(error)")
+//        }
+//    }
+    
     func addGroup(_ group: GroupModel) {
-        do {
-            let realm = try Realm()
-            realm.beginWrite()
-            realm.add(group)
-            try realm.commitWrite()
-        } catch {
-            print("\n\(#file)\n\t\(#function):\t\(#line)\n\tAdd group error:\n\t\(error)")
+        let alertVC = UIAlertController(title: "Add new group", message: nil, preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            let newGroup = FireBaseGroupModel(id: group.id, name: group.name, image_url: group.photo_50 ?? "")
+            let groupRef = self.ref.child(group.name.lowercased())
+            groupRef.setValue(newGroup.toAnyObject())
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertVC.addTextField { groupName in groupName.text = group.name }
+        
+        alertVC.addAction(saveAction)
+        alertVC.addAction(cancelAction)
+        
+        present(alertVC, animated: true, completion: nil)
     }
+
 }
